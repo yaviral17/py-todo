@@ -11,8 +11,7 @@ services:
     depends_on:
       - db
     environment:
-      - DATABASE_URL=postgresql://root:test1234@db:5432/todo
-      - POSTGRES_HOST=db
+      - DATABASE_URL=postgresql://root:test1234@${RAILWAY_TCP_PROXY_DOMAIN}:5432/todo
       - POSTGRES_USER=root
       - POSTGRES_PASSWORD=test1234
       - POSTGRES_DB=todo
