@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+    volumes:
+      - .:/app
+    ports:
+      - "4567:8000"
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=postgresql://root:test1234@db:5432/todo
+      - POSTGRES_HOST=db
+
+  db:
+    image: postgres:13
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=test1234
+      - POSTGRES_DB=todo
+    ports:
+      - "6789:5432"
+
+volumes:
+  postgres_data:
