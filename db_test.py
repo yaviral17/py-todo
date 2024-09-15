@@ -39,8 +39,6 @@ def create_table():
         print("Hello from create_table")
     except Exception as e:
            print(f"Error creating table: {e}")
-    finally:
-        release_connection(con)
 
 create_table()
 

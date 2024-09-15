@@ -3,11 +3,11 @@ version: '3.8'
 services:
   web:
     build: .
-    command: uvicorn main:app --host 0.0.0.0 --port 4567 --reload
+    command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
     volumes:
       - .:/app
     ports:
-      - "4567:8000"
+      - "8000:8000"
     depends_on:
       - my_db
     environment:
