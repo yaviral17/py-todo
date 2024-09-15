@@ -11,7 +11,7 @@ services:
     depends_on:
       - db
     environment:
-      - DATABASE_URL=postgresql://root:test1234@py-todo.railway.internal:5432/todo
+      - DATABASE_URL=postgresql://root:test1234@${DATABASE_PRIV_URL}:5432/todo
       - POSTGRES_USER=root
       - POSTGRES_PASSWORD=test1234
       - POSTGRES_DB=todo
