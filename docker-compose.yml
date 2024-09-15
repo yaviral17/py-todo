@@ -11,8 +11,8 @@ services:
     depends_on:
       - db
     environment:
-      - DATABASE_URL=postgresql://root:test1234@0.0.0.0:5432/todo
-      - POSTGRES_HOST=0.0.0.0
+      - DATABASE_URL=postgresql://root:test1234@db:5432/todo
+      - POSTGRES_HOST=db
       - POSTGRES_USER=root
       - POSTGRES_PASSWORD=test1234
       - POSTGRES_DB=todo
