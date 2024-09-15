@@ -9,10 +9,10 @@ services:
     ports:
       - "8000:8000"
     depends_on:
-      - my_db
+      - db
     environment:
-      - DATABASE_URL=postgresql://root:test1234@my_db:5432/todo
-      - POSTGRES_HOST=my_db
+      - DATABASE_URL=postgresql://root:test1234@db:5432/todo
+      - POSTGRES_HOST=db
       - POSTGRES_USER=root
       - POSTGRES_PASSWORD=test1234
       - POSTGRES_DB=todo
@@ -20,7 +20,7 @@ services:
     networks:
       - my-network
 
-  my_db:
+  db:
     image: postgres:13
     volumes:
       - postgres_data:/var/lib/postgresql/data

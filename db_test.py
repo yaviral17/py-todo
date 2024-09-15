@@ -7,7 +7,7 @@ import psycopg2.pool
 DB_NAME = os.getenv('POSTGRES_DB', 'todo')
 DB_USER = os.getenv('POSTGRES_USER', 'root')
 DB_PASSWORD = os.getenv('POSTGRES_PASSWORD', 'test1234')
-DB_HOST = os.getenv('POSTGRES_HOST', 'my_db')
+DB_HOST = os.getenv('POSTGRES_HOST', 'db')
 DB_PORT = os.getenv('POSTGRES_PORT', '5432')
 
 
