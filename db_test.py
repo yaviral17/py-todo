@@ -11,14 +11,13 @@ DB_HOST = os.getenv('POSTGRES_HOST', 'db')
 DB_PORT = os.getenv('POSTGRES_PORT', '5432')
 
 
+db_url = f"postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
+
+print(f"-----{db_url}-----")
 # Create a connection pool
 connection_pool = psycopg2.pool.SimpleConnectionPool(
     1, 20,
-    dbname=DB_NAME,
-    user=DB_USER,
-    password=DB_PASSWORD,
-    host=DB_HOST,
-    port=DB_PORT
+    dsn=db_url
 )
 
 def get_connection():
