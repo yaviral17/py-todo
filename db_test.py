@@ -1,14 +1,17 @@
 import os
+from dotenv import load_dotenv
 import psycopg2
 import psycopg2.pool
 
 
+load_dotenv()
+
 # Get database connection details from environment variables
-DB_NAME = os.getenv('POSTGRES_DB', 'todo')
-DB_USER = os.getenv('POSTGRES_USER', 'root')
-DB_PASSWORD = os.getenv('POSTGRES_PASSWORD', 'test1234')
-DB_HOST = os.getenv('POSTGRES_HOST', 'db')
-DB_PORT = os.getenv('POSTGRES_PORT', '5432')
+DB_NAME = os.getenv('POSTGRES_DB')
+DB_USER = os.getenv('POSTGRES_USER')
+DB_PASSWORD = os.getenv('POSTGRES_PASSWORD')
+DB_HOST = os.getenv('POSTGRES_HOST')
+DB_PORT = os.getenv('POSTGRES_PORT')
 
 
 db_url = f"postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
